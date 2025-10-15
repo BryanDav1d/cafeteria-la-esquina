@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panel Admin - La Esquina</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+  <div id="site-header"></div>
+  <main class="container">
+    <h1>Panel de administración (Demo)</h1>
+    <section id="loginSection">
+      <h2>Iniciar sesión (propietario)</h2>
+      <form id="loginForm">
+        <label>Usuario<input name="user" required></label>
+        <label>Contraseña<input name="pass" type="password" required></label>
+        <button class="btn" type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section id="adminPanel" style="display:none;">
+      <h2>Gestión de Menú</h2>
+      <form id="menuForm">
+        <input type="hidden" name="id">
+        <label>Título<input name="title" required></label>
+        <label>Descripción<textarea name="desc" required></textarea></label>
+        <label>Precio<input name="price" required></label>
+        <label>Imagen (ruta relativa)<input name="img" placeholder="assets/imagen.svg"></label>
+        <button class="btn" type="submit">Guardar</button>
+      </form>
+      <div id="menuAdminList"></div>
+
+      <h2>Reservas</h2>
+      <div id="reservationsList"></div>
+      <button id="logoutBtn" class="btn outline">Cerrar sesión</button>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="js/models.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

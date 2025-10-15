@@ -1,6 +1,9 @@
 // Model: datos estáticos para el demo
 const MenuModel = (function(){
-  const items = [
+  const STORAGE_KEY = 'le_menu_v1';
+  const RESERVATION_KEY = 'le_reservations_v1';
+
+  const defaultItems = [
     {id:1, title:'Café espresso', desc:'Rico y concentrado. Taza pequeña, intenso.', price:'$120', img:'assets/espresso.svg'},
     {id:2, title:'Café filtrado', desc:'Notas florales y afrutadas. 250ml.', price:'$150', img:'assets/filter.svg'},
     {id:3, title:'Latte de temporada', desc:'Leche espumada y sirope casero.', price:'$180', img:'assets/latte.svg'},
@@ -8,6 +11,10 @@ const MenuModel = (function(){
     {id:5, title:'Brownie chocolate', desc:'Chocolate 70% con nueces.', price:'$240', img:'assets/brownie.svg'},
     {id:6, title:'Sándwich vegetariano', desc:'Pan artesanal, verduras grilladas.', price:'$320', img:'assets/sandwich.svg'}
   ];
+
+  // cargar desde localStorage o inicializar
+  let items = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultItems.slice();
+  let reservations = JSON.parse(localStorage.getItem(RESERVATION_KEY)) || [];
 
   const testimonials = [
     {id:1, name:'María López', text:'El mejor café de la ciudad, ambiente perfecto para trabajar.'},
@@ -20,11 +27,23 @@ const MenuModel = (function(){
     {id:2, img:'assets/gallery2.svg', alt:'Tabla de repostería'},
     {id:3, img:'assets/gallery3.svg', alt:'Barista preparando café'}
   ];
+  function save(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    localStorage.setItem(RESERVATION_KEY, JSON.stringify(reservations));
+  }
+
   return {
     all: ()=>items,
     getById: (id)=>items.find(i=>i.id===id),
+    add: (data)=>{ const id = Date.now(); items.push(Object.assign({id:id}, data)); save(); return id; },
+    update: (id, data)=>{ const idx = items.findIndex(i=>i.id===id); if(idx>-1){ items[idx]=Object.assign(items[idx], data); save(); return true;} return false; },
+    remove: (id)=>{ items = items.filter(i=>i.id!==id); save(); },
     testimonials: ()=>testimonials,
-    gallery: ()=>gallery
+    gallery: ()=>gallery,
+    // reservations
+    reservations: ()=>reservations,
+    addReservation: (r)=>{ r.id = Date.now(); reservations.push(r); save(); return r.id; },
+    removeReservation: (id)=>{ reservations = reservations.filter(r=>r.id!==id); save(); }
   };
 })();
 
