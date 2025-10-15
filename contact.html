@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contacto - Cafetería La Esquina</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+  <div id="site-header"></div>
+  <main class="container contact">
+    <h1>Contacto y reservas</h1>
+    <form id="contactForm">
+      <label>Nombre<input type="text" name="name" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Teléfono<input type="tel" name="phone"></label>
+      <label>Mensaje<textarea name="message" rows="5" required></textarea></label>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+    <p class="note">Dirección: Calle Falsa 123 · Tel: +54 9 11 1234-5678</p>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/models.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

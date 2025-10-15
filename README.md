@@ -3,9 +3,10 @@
 Proyecto demo: página estática profesional para usar en tu portafolio de Workana.
 
 Contenido:
-- `index.html` - página principal
-- `styles.css` - estilos
-- `script.js` - scripts mínimos
+- `index.html`, `about.html`, `menu.html`, `contact.html` - páginas principales
+- `styles.css` - estilos globales
+- `script.js` - inicializador y comportamientos comunes
+- `js/` - estructura MVC ligera: `models.js`, `views.js`, `controllers.js`
 - `assets/` - imágenes vectoriales de ejemplo
 
 Instrucciones rápidas
@@ -43,6 +44,23 @@ Notas de personalización
 
 - Cambia textos, colores, logo e imágenes por tu propio contenido.
 - Si quieres un backend para el formulario, puedo añadir un ejemplo con Formspree o Netlify Forms.
+
+Arquitectura (MVC ligera)
+
+- models.js: contiene datos y lógica de acceso (aquí datos estáticos para demo).
+- views.js: funciones que generan fragmentos HTML reutilizables (header/footer, tarjetas de menú).
+- controllers.js: inyecta la 'shell' (header/footer) y renderiza vistas según la página.
+
+Estructura recomendada para el portafolio en Workana
+
+- Añade la URL pública (GitHub Pages) y el link al repositorio.
+- Muestra capturas responsive (desktop y móvil) y explica qué tecnologías usaste (HTML, CSS, JS vanilla, patrón MVC ligero).
+
+Si quieres, puedo:
+
+- Añadir Formspree para enviar mensajes sin backend.
+- Mejorar paleta de colores y accesibilidad (contrastes, tamaños de fuente).
+- Preparar una rama `gh-pages` o añadir acciones de GitHub para deploy automático.
 
 Siguientes pasos sugeridos
 

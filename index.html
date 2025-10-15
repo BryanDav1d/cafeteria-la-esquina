@@ -8,72 +8,37 @@
   <meta name="description" content="Cafetería La Esquina: café de especialidad, repostería artesanal y ambiente acogedor. Proyecto demo para perfil Workana.">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#" class="logo">
-        <img src="assets/logo.svg" alt="La Esquina logo" height="48">
-      </a>
-      <nav class="nav">
-        <a href="#about">Nosotros</a>
-        <a href="#menu">Menú</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    </div>
-  </header>
+  <body data-page="home">
+  <!-- Header (injected by JS) -->
+  <div id="site-header"></div>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <img src="assets/hero.svg" alt="Café y repostería" class="hero-image">
       <div class="hero-content container">
         <h1>Cafetería La Esquina</h1>
         <p>Sabores artesanales, café de especialidad y un espacio para disfrutar.</p>
-        <a class="btn" href="#contact">Reservar mesa</a>
+        <a class="btn" href="contact.html">Reservar mesa</a>
       </div>
     </section>
 
-    <section id="about" class="container about">
+    <section class="container about">
       <h2>Sobre nosotros</h2>
       <p>En La Esquina combinamos técnicas tradicionales con ingredientes locales. Ideal para desayunos, reuniones y trabajo remoto.</p>
     </section>
 
-    <section id="menu" class="container menu">
+    <section class="container menu-preview">
       <h2>Menú destacado</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Café de especialidad</h3>
-          <p>Seleccionado por los mejores tostadores. Servicio espresso y filtrado.</p>
-        </article>
-        <article class="card">
-          <h3>Tarta de limón</h3>
-          <p>Receta casera con merengue dorado.</p>
-        </article>
-        <article class="card">
-          <h3>Bocaditos salados</h3>
-          <p>Opciones vegetarianas y sin gluten.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="container contact">
-      <h2>Contacto y reservas</h2>
-      <form id="contactForm">
-        <label>Nombre<input type="text" name="name" required></label>
-        <label>Email<input type="email" name="email" required></label>
-        <label>Mensaje<textarea name="message" rows="4" required></textarea></label>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-      <p class="note">Dirección: Calle Falsa 123 · Tel: +54 9 11 1234-5678</p>
+      <div id="menuPreview" class="cards"></div>
+      <p class="align-center"><a class="btn outline" href="menu.html">Ver menú completo</a></p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> Cafetería La Esquina — Proyecto demo para Workana</small>
-      <p><a href="#">Ver en GitHub</a></p>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
+  <script src="js/models.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/controllers.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
