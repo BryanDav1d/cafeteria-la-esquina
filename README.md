@@ -1,6 +1,6 @@
-# Cafetería La Esquina — Demo para perfil Workana
+# Cafetería La Esquina 
 
-Proyecto demo: página estática profesional para usar en tu portafolio de Workana.
+Proyecto demo
 
 Contenido:
 - `index.html`, `about.html`, `menu.html`, `contact.html` - páginas principales
