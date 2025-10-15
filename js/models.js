@@ -3,13 +3,16 @@ const MenuModel = (function(){
   const STORAGE_KEY = 'le_menu_v1';
   const RESERVATION_KEY = 'le_reservations_v1';
 
+  // Por defecto esperamos imágenes JPG en assets/images/ con los nombres indicados.
+  // Simplemente copia tus archivos JPG a assets/images/ manteniendo estos nombres
+  // (o cambia la ruta en el admin).
   const defaultItems = [
-    {id:1, title:'Café espresso', desc:'Rico y concentrado. Taza pequeña, intenso.', price:'$120', img:'assets/espresso.svg'},
-    {id:2, title:'Café filtrado', desc:'Notas florales y afrutadas. 250ml.', price:'$150', img:'assets/filter.svg'},
-    {id:3, title:'Latte de temporada', desc:'Leche espumada y sirope casero.', price:'$180', img:'assets/latte.svg'},
-    {id:4, title:'Tarta de limón', desc:'Masa casera y merengue dorado.', price:'$280', img:'assets/pie.svg'},
-    {id:5, title:'Brownie chocolate', desc:'Chocolate 70% con nueces.', price:'$240', img:'assets/brownie.svg'},
-    {id:6, title:'Sándwich vegetariano', desc:'Pan artesanal, verduras grilladas.', price:'$320', img:'assets/sandwich.svg'}
+    {id:1, title:'Café espresso', desc:'Rico y concentrado. Taza pequeña, intenso.', price:'$120', img:'assets/images/espresso.jpg'},
+    {id:2, title:'Café filtrado', desc:'Notas florales y afrutadas. 250ml.', price:'$150', img:'assets/images/filter.jpg'},
+    {id:3, title:'Latte de temporada', desc:'Leche espumada y sirope casero.', price:'$180', img:'assets/images/latte.jpg'},
+    {id:4, title:'Tarta de limón', desc:'Masa casera y merengue dorado.', price:'$280', img:'assets/images/pie.jpg'},
+    {id:5, title:'Brownie chocolate', desc:'Chocolate 70% con nueces.', price:'$240', img:'assets/images/brownie.jpg'},
+    {id:6, title:'Sándwich vegetariano', desc:'Pan artesanal, verduras grilladas.', price:'$320', img:'assets/images/sandwich.jpg'}
   ];
 
   // cargar desde localStorage o inicializar

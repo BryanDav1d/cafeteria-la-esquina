@@ -89,6 +89,31 @@ Validación y seguridad
 - Los formularios incluyen validación básica de campos obligatorios.
 - El login es demo y NO es seguro para producción; para producción debes implementar autenticación real y un backend.
 
+Backend local (opcional, Node + SQLite)
+
+Si quieres persistencia real y autenticación segura, puedes levantar el backend incluido en `server/`. Esto crea una pequeña API REST que maneja usuarios, menú y reservas con SQLite.
+
+Pasos (Windows / PowerShell):
+
+```powershell
+cd "C:\Users\Bryan_Noboa\Desktop\PROYECTOS\project1.0.0\server"
+npm install
+node server.js
+```
+
+El servidor correrá por defecto en `http://localhost:3001`.
+
+- Login: POST `/api/login` con JSON { username, password } -> devuelve token JWT.
+- Endpoints protegidos (requieren header Authorization: Bearer <token>): POST/PUT/DELETE `/api/menu`, GET `/api/reservations`.
+- Endpoint público: POST `/api/reservations` para crear reservas.
+
+Cómo migrar el frontend a la API:
+
+1. Reemplaza las llamadas a `MenuModel`/localStorage por fetch a `/api/menu`.
+2. En el admin, al hacer login, llama a `/api/login` y guarda el token en `localStorage` para usarlo en los headers Authorization.
+3. Para crear reservas desde el formulario del cliente, POST a `/api/reservations`.
+
+Si quieres, puedo hacer la migración automática del frontend para que use esta API: dime si quieres que lo haga (haré fetches, manejo de token y fallback a localStorage si el servidor no está disponible).
 Siguientes pasos sugeridos
 
 - Añadir un archivo `LICENSE` y `CONTRIBUTING` si lo necesitas.
