@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
   const page = document.body.dataset.page;
   if(page === 'home'){
     Controllers.renderMenuPreview();
+    Controllers.renderHomeExtras();
+    Controllers.animateOnScroll();
   } else if(page === 'menu'){
     Controllers.renderMenuPage();
   }

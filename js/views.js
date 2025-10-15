@@ -20,7 +20,15 @@ const Views = (function(){
   }
 
   function menuList(items){
-    return items.map(it=>`<article class="card"><h3>${it.title}</h3><p>${it.desc}</p><p class="muted">${it.price}</p></article>`).join('');
+  return items.map(it=>`<article class="card fade-up"><div class="media"><img src="${it.img||'assets/hero.svg'}" alt="${it.title}"/></div><div class="card-body"><h3>${it.title}</h3><p>${it.desc}</p><p class="muted">${it.price}</p></div></article>`).join('');
+  }
+
+  function testimonials(list){
+    return `<div class="testimonials">${list.map(t=>`<blockquote class="quote fade-up"><p>"${t.text}"</p><footer>— ${t.name}</footer></blockquote>`).join('')}</div>`;
+  }
+
+  function gallery(list){
+    return `<div class="gallery">${list.map(g=>`<figure class="fade-up"><img src="${g.img}" alt="${g.alt}"><figcaption>${g.alt}</figcaption></figure>`).join('')}</div>`;
   }
 
   return { header, footer, menuList };

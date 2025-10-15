@@ -28,5 +28,23 @@ const Controllers = (function(){
     target.innerHTML = Views.menuList(list);
   }
 
-  return { injectShell, renderMenuPreview, renderMenuPage };
+  function renderHomeExtras(){
+    // testimonials and gallery on home page
+    const ttarget = document.getElementById('testimonials');
+    if(ttarget) ttarget.innerHTML = Views.testimonials(MenuModel.testimonials());
+    const gtarget = document.getElementById('gallery');
+    if(gtarget) gtarget.innerHTML = Views.gallery(MenuModel.gallery());
+  }
+
+  function animateOnScroll(){
+    const items = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, {threshold:0.12});
+    items.forEach(i=>io.observe(i));
+  }
+
+  return { injectShell, renderMenuPreview, renderMenuPage, renderHomeExtras, animateOnScroll };
 })();
