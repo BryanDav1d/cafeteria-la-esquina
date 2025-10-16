@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cuenta — La Esquina</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="account">
+  <div id="site-header"></div>
+  <main class="container">
+    <h1>Mi cuenta</h1>
+    <section id="auth">
+      <h2>Iniciar sesión / Registrarse</h2>
+      <form id="signupForm">
+        <label>Nombre completo<input name="name"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Contraseña<input name="password" type="password" required></label>
+        <button class="btn" type="submit">Crear cuenta</button>
+      </form>
+      <p>o inicia sesión con</p>
+      <div id="googleSignIn"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="js/customer-auth.js"></script>
+</body>
+</html>

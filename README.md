@@ -114,6 +114,29 @@ Cómo migrar el frontend a la API:
 3. Para crear reservas desde el formulario del cliente, POST a `/api/reservations`.
 
 Si quieres, puedo hacer la migración automática del frontend para que use esta API: dime si quieres que lo haga (haré fetches, manejo de token y fallback a localStorage si el servidor no está disponible).
+
+Servir frontend y backend juntos
+
+He configurado el servidor para servir también los archivos estáticos del frontend desde la raíz del proyecto. Eso significa que con un solo comando puedes ejecutar todo:
+
+```powershell
+cd "C:\Users\Bryan_Noboa\Desktop\PROYECTOS\project1.0.0\server"
+node server.js
+```
+
+Luego abre en el navegador: http://localhost:3001/index.html (o /admin.html, /account.html).
+
+Autenticación con Google (Firebase)
+
+Para que los clientes puedan registrarse con Google, añadí una página `account.html` y un script `js/customer-auth.js` que usa Firebase Auth (compat). Debes crear un proyecto de Firebase y reemplazar el objeto `firebaseConfig` con tus credenciales (apiKey, authDomain, projectId, etc.).
+
+Pasos rápidos:
+
+1. Crea un proyecto en Firebase Console.
+2. Activa Authentication → Sign-in method → Email/Password y Google.
+3. Copia la config del SDK (Firebase project settings) y pégala en `js/customer-auth.js` en la variable `firebaseConfig`.
+
+Con eso los usuarios podrán crear cuenta con email y contraseña y también iniciar sesión con Google.
 Siguientes pasos sugeridos
 
 - Añadir un archivo `LICENSE` y `CONTRIBUTING` si lo necesitas.

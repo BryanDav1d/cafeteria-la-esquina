@@ -64,8 +64,17 @@ app.post('/api/reservations', (req,res)=>{
   db.run(`INSERT INTO reservations (name,email,phone,date,time,people,note) VALUES (?,?,?,?,?,?,?)`, [name,email,phone,date,time,people,note], function(err){ if(err) return res.status(500).json({error:'db'}); res.json({id:this.lastID}); });
 });
 
+// delete reservation (admin)
+app.delete('/api/reservations/:id', auth, (req,res)=>{
+  const id = req.params.id; db.run(`DELETE FROM reservations WHERE id=?`, [id], function(err){ if(err) return res.status(500).json({error:'db'}); res.json({deleted:this.changes}); });
+});
+
 // Serve static (optional)
 app.use('/static', express.static(__dirname + '/../assets'));
 
+// Serve frontend static files from project root
+app.use('/', express.static(__dirname + '/..'));
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, ()=>console.log('Server listening on',PORT));
+console.log('Serving frontend from project root. Open http://localhost:'+PORT+'/index.html');
